@@ -1,0 +1,2 @@
+# Phase 2 uses Python's standard-library WSGI server and sqlite3.
+# No third-party runtime dependencies are required.

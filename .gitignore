@@ -1,0 +1,11 @@
+# Python runtime artifacts
+__pycache__/
+*.py[cod]
+
+# Local database/runtime data
+services/api/data/*.sqlite3
+
+# Node / Next.js output
+node_modules/
+.next/
+*.tsbuildinfo

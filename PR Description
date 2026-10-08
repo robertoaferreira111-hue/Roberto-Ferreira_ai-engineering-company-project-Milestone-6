@@ -1,0 +1,26 @@
+# Brasaland Centralized Incident Manager
+
+## Summary
+
+Implements incident management across shared validation, historical CSV seeding, a SQLite-backed JSON API, and the backoffice UI.
+
+## Rubric coverage
+
+- Incident records enforce Brasaland category, status, origin, and branch values.
+- CSV validation and transformations are shared in `packages/shared/incident_validation/`.
+- `scripts/seed_incidents.py` transforms legacy fields, skips and reports invalid rows, sets customer origin, and is idempotent by source incident ID.
+- The API provides create, filtered list, detail, lifecycle status update, and summary routes with field-specific validation and generic unexpected-error responses.
+- The backoffice provides touch-friendly registration, branch-context highlighting, list filters, optimistic status updates with rollback, and summary metrics with loading/error states.
+
+## Verification
+
+- `python -m unittest discover -s services/api/tests -v`
+- Seed regression test verifies the 98 valid records, expected transformed metrics, two reported invalid rows, customer origin, and repeat-run idempotency.
+- `cd uis/backoffice && npm run typecheck && npm run build`
+
+## Reviewer links
+
+- Public repository: https://github.com/robertoaferreira111-hue/Roberto-Ferreira_ai-engineering-company-project-Milestone-6
+- Local UI after following README setup: http://localhost:3000/incidents
+
+Screenshot evidence is included in `.project_requirements/screenshots/`. `Brasaland Incident Command Center.png` shows the incident command center, populated incident list, and summary metrics. Please add a readable browser capture that clearly shows the form validation message if the existing supporting error/console captures do not satisfy that rubric item.
